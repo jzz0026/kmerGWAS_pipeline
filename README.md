@@ -40,24 +40,8 @@ This step reads `samples.tsv`, collects all `fq1` (and `fq2` when present) paths
 
 **Usage:**
 ```bash
-bash 02_kmc_per_individual_template.sh <KMER_LENGTH> <THREADS> [SAMPLES_TSV] [bash|sbatch]
+sbatch 02_kmc_per_individual_paired_jzhou.sh
 ```
-
-**Examples:**
-```bash
-# Submit one batch job per sample (default)
-bash 02_kmc_per_individual_template.sh 31 2
-
-# Use a custom samples file and run mode
-bash 02_kmc_per_individual_template.sh 31 2 samples.tsv sbatch
-
-# Run all samples in the current shell (no job submission)
-bash 02_kmc_per_individual_template.sh 31 2 samples.tsv bash
-```
-
-- **Arguments:** `KMER_LENGTH` (e.g. 31), `THREADS` (e.g. 2), optional `SAMPLES_TSV` (default: `samples.tsv`), optional `bash` or `sbatch` (default: `sbatch`).
-- **Output:** For each sample, a directory `kmc/<sample_name>/` containing `kmers_with_strand`, `input_files.txt`, and logs.
-- **If you see fewer samples in `kmc/` than in your TSV:** In `bash` mode the launcher now runs all samples even if one fails; it reports which samples failed at the end. Fix any missing FASTQ paths or errors for those samples and re-run (you can re-run only the failed samples if needed).
 
 ### Step 3: Combine and Filter k-mers
 The script auto-generates `kmers_list_paths.txt` from existing `kmc/<sample_name>/kmers_with_strand` files (from step 02), then combines and filters k-mers:

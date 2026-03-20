@@ -66,7 +66,7 @@ bash 05_build_kinship_matrix.sh 31
 
 ### Step 6: Run GWAS
 ```bash
-bash 06_run_gwas.sh 31 disease.pheno 8
+bash 06_run_gwas.sh 31 FT10.pheno 40
 ```
 - Arguments: `<KMER_LENGTH> [PHENO_FILE] [THREADS]` — default phenotype: `disease.pheno`, default threads: 8.
 - Requires step 05 (kmers_table.kinship).

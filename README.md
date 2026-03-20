@@ -28,6 +28,10 @@ This will download all the repository into the current directory with all requir
 - **Sample manifest:** Create a tab-separated file `samples.tsv` with columns: `sample_name`, `library_name`, `fq1`, `fq2`, `sra`. For each row, set `fq1` to the path of the first (or only) FASTQ file and `fq2` to the second file for paired-end data, or leave `fq2` empty for single-end. One `sample_name` can appear on multiple rows (e.g. multiple runs or libraries); all listed FASTQs for that sample will be combined into one k-mer count.
 - Ensure your phenotype table is available (e.g., `trait.txt`).
 - **Test data:** The example test files (e.g. `test_reads/`, `samples.tsv`, `disease.pheno`) were downloaded from [kGWASflow](https://github.com/akcorut/kGWASflow/).
+- QC reads
+   ```bash
+   sbatch 01_read_QC_fastp.sh
+   ```
 
 ## 4. Run the Pipeline
 
